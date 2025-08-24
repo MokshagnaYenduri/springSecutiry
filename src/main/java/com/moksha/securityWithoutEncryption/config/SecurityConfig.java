@@ -14,11 +14,11 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.csrf(customizer -> customizer.disable());
-        http.authorizeHttpRequests(requests -> requests.anyRequest().authenticated());
-        //http.formLogin(Customizer.withDefaults());
-        http.httpBasic(Customizer.withDefaults());
-        http.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
+        http
+                .csrf(customizer -> customizer.disable())
+                .authorizeHttpRequests(requests -> requests.anyRequest().authenticated())
+                .httpBasic(Customizer.withDefaults())
+                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 
         return http.build();
     }
