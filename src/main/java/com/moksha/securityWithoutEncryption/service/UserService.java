@@ -3,7 +3,9 @@ package com.moksha.securityWithoutEncryption.service;
 import com.moksha.securityWithoutEncryption.model.Users;
 import com.moksha.securityWithoutEncryption.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UserService {
 
     @Autowired
