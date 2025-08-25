@@ -1,6 +1,5 @@
 package com.moksha.securityWithoutEncryption.service;
 
-import ch.qos.logback.core.CoreConstants;
 import com.moksha.securityWithoutEncryption.model.UserPrincipal;
 import com.moksha.securityWithoutEncryption.model.Users;
 import com.moksha.securityWithoutEncryption.repo.UserRepo;
@@ -15,6 +14,7 @@ public class MyUserDetailsService implements UserDetailsService {
 
     @Autowired
     private UserRepo repo;
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Users user = repo.findByName(username);
