@@ -1,9 +1,8 @@
 package com.moksha.securityWithoutEncryption.config;
-
-import com.moksha.securityWithoutEncryption.service.MyUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.Customizer;
@@ -35,7 +34,7 @@ public class SecurityConfig {
     }
 
     @Bean
-    public UserDetailsService userDetilsService(){
+    public UserDetailsService userDetilsService() {
         UserDetails user1 = User
                 .withDefaultPasswordEncoder()
                 .username("Mokshagna")
@@ -54,11 +53,11 @@ public class SecurityConfig {
     }
 
     @Bean
-    public AuthenticationProvider authenticationProvider(){
+    @Primary
+    public AuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
         provider.setPasswordEncoder(NoOpPasswordEncoder.getInstance());
         provider.setUserDetailsService(userDetailsService);
-
         return provider;
     }
 }

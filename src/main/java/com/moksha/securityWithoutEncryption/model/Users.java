@@ -2,13 +2,16 @@ package com.moksha.securityWithoutEncryption.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Column;
 
 @Entity
 public class Users {
 
     @Id
     private int id;
+    @Column(nullable = false)
     private String name;
+    @Column(nullable = false)
     private String password;
 
     public int getId() {
